@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Portfolio</title>
+        <link rel = "stylesheet" href="Header.css">
+        <link rel = "stylesheet" href="About.css">
+        <link rel = "stylesheet" href="cards.css">
+        <link rel = "stylesheet" href="ContactMe.css">
+        <link rel = "stylesheet" href="General.css">
+        <script src="https://kit.fontawesome.com/a5c37a7406.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id = "header">
+            <div class="container">
+                <nav>
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-solid fa-xmark" onclick = "closemenu()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                </nav>
+                <div class="header-text">
+                    <p>Aspiring Software Engineer and Salesforce Developer</p>
+                    <h1>Hey! I am Aditya Aurora</h1>
+                </div>
+            </div>
+        </div>
+        <!--About Page-->
+        <div id = "about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img class = "my_image"src= "Images/About_image.png">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class = "subtitle">About Me</h1>
+                        <p>I am from Carmel, Indiana, althought I was born in New Delhi, India.
+                            Computers have always fascinated me and I love diving into coding and exploring different
+                            methods used in the industry. My goal is to become a software engineer or a cloud engineer 
+                            for Salesforce. More information about my education, skills and relevant coursework below!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--cards-->
+        <div id="cards">
+            <div class="container">
+                <div class="main_columns">
+                    <div class="card">
+                        <img src = "Images/IndianaImage.png">
+                        <div class="card-content">
+                            <h2>
+                                Education
+                            </h2>
+                            <p>
+                                I am currently pursuing a Bachelor of Science in Intelligence Systems Engineering through the 
+                                Luddy School of Informatics, Computing, and Engineering at Indiana University Bloomington. 
+                                Additionally, I am minoring in Business and Mathematics, with an expected graduation in spring of 2025.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src = "Images/SkillsImage.png">
+                        <div class="card-content">
+                            <h2>
+                                Skills
+                            </h2>
+                            <p>
+                                My technical skills consist of Python, HTML, CSS, JavaScript, C, Java, APEX(Java based Salesforce programming language), 
+                                SOQL(Salesforce Object Query Language), and System Verilog. I also have the knowledge of configuring application administration in Salesforce. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src = "Images/SkillsImage2.png">
+                        <div class="card-content">
+                            <h2>
+                                Coursework
+                            </h2>
+                            <ul>
+                                <li>Computers in Business</li>
+                                <li>Intelligent Systems I and II(Machine Learning)</li>
+                                <li>Software Systems Engineering</li>
+                                <li>Computer Systems</li>
+                                <li>Engineering Computing Architectures</li>
+                                <li>Computer Systems Engineering</li>
+                                <li>Cyber-Physical Systems Engineering</li>
+                                <li>Digital Designs with FPGA's</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Contact Section-->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class = "subtitle">Contact Me</h1>
+                        <p><i class="fa-sharp fa-solid fa-paper-plane fa-lg"></i>adityaaurora123@gmail.com</p>
+                        <p><i class="fa-solid fa-phone fa-lg"></i>+1 (832) 679-3986</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/adiaurora/"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+                            <a href="https://github.com/adityaaurora"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </div>
+                        <a href="" download class = "btn">Download Resume</a>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name = "Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class = "btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var sidemenu = document.getElementById("sidemenu");
+
+            function openmenu(){
+                sidemenu.style.right = "0";
+            }
+
+            function closemenu(){
+                sidemenu.style.right = "-200px";
+            }
+        </script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyBM2MjkOHCKOxhfpTY8bapPdnwhoKDtSDOs4ZMDMY0jDjAkx36-FKeJDSNljlxfWNe/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+    </body>
+</html>
